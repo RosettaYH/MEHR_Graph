@@ -1,0 +1,50 @@
+PATHS:
+  graph_path: "./graphs/mimic4.pkl"
+  labels_path: "./graphs/mimic4_labels.pkl"
+
+OPTIMIZERS:
+  GCN:
+    opt_method: "ADAM"
+    lr: 0.001
+    weight_decay: 0.001
+  GAT:
+    opt_method: "ADAM"
+    lr: 0.001
+    weight_decay: 0.001
+  HGT:
+    opt_method: "ADAM"
+    lr: 0.002
+    weight_decay: 0.001
+
+MODEL:
+  GCN:
+    name: "GCN"
+    num_layers: 2
+    in_dim: 128
+    hidden_dim: 256
+    out_dim: 1027
+    feat_drop: 0.1
+  GAT:
+    name: "GAT"
+    num_layers: 5
+    in_dim: 128
+    hidden_dim: 32
+    out_dim: 1027
+    num_heads: 8
+    num_out_heads: 1
+    attn_drop: 0.3
+    feat_drop: 0.3
+    negative_slope: 0.1
+  HGT:
+    name: "HGT"
+    num_layers: 2
+    in_dim: 128
+    hidden_dim: 32
+    out_dim: 1027
+    num_heads: 2
+    num_out_heads: 1
+    feat_drop: 0.3
+
+TRAIN:
+  num_epochs: 50
+  batch_size: 4096
